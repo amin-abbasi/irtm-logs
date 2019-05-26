@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/amin4193/irtm-logs/issues"
   },
-  "homepage": "https://github.com/amin4193/irtm-logs#readme"
+  "homepage": "https://github.com/amin4193/irtm-logs#readme",
+  "dependencies": {
+    "joi": "^14.3.1"
+  }
 }
