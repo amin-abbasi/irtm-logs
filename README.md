@@ -6,9 +6,9 @@ MS-Logs saves all related data from each endpoint (request &amp; response) in al
 
 Using npm:
 ```shell
-$ npm i ms-logs
+$ npm install ms-logs
 ```
-Note: add --save if you are using npm < 5.0.0
+Note: add `--save` if you are using npm < 5.0.0
 
 In Node.js:
 ```js
@@ -16,9 +16,19 @@ const express = require('express')
 const app     = express()
 
 // Load ms-logs
-const MSLogs = require('ms-logs')
+const Logs = require('ms-logs')
 
-// Use MSLogs as a middleware in express
-app.use(MSLogs)
+// Create a new model and save in database
+app.post('/v1/your/route', /* your validation... */, (req, res, next) => {
+  return YourModel.create(req.body)
+    .then((result) => {
+      
+      // save this endpoint action
+      Logs.send(req, { ...res, result: result })
+
+      res.send({ success: true, result: result })
+    })
+    .catch(/* error handling... */)
+})
 ```
 

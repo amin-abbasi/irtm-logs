@@ -10,7 +10,6 @@ const config = require('./config')
  */
 function request(protocol, bodyData) {
   // Create Log Options
-  // TODO: this is a local stting - should be changed in the future
   const opt = {
     host: config.host,
     port: config.port,
@@ -43,31 +42,8 @@ function request(protocol, bodyData) {
  * @param   {Object}  res  Endpoint Response Object
  * @return  {Promise}      returns a result of saving log in MS-Logs
  */
-function send(err, req, res) {
-  // --------------------------------- Create Response ---------------------------------
-  if(err.isBoom) {
-    err.statusCode = err.output.statusCode
-    err.message = err.output.payload.message
-  }
-
-  const response = res.result ? {
-    statusCode: res.statusCode,
-    success: (res.result != 'string'),
-    result: res.result,
-    request: {
-      headers: req.headers,
-      params: req.params,
-      query: req.query,
-      body: req.body,
-      route: req.route
-    }
-  } : {
-    statusCode: err.statusCode || (err.status || (err.code || 500)),
-    message: err.message || http.STATUS_CODES[500],
-    body: err.data || null
-  }
+function send(req, res) {
   
-  // ----------------------------- Save Response in MS-Logs -----------------------------
   const bodyData = JSON.stringify({
     objectId: req.body.objectId,
     objectType: req.body.objectType,
@@ -87,7 +63,11 @@ function send(err, req, res) {
       secure: req.secure,
       subdomains: req.subdomains
     },
-    response: response
+    response: {
+      statusCode: res.statusCode || 200,
+      success: (typeof res.result != 'string'),
+      result: res.result
+    }
   })
 
     // Save log in DB
