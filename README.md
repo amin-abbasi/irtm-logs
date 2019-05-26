@@ -1,12 +1,12 @@
-# ms-logs
+# irtm-logs
 
-MS-Logs saves all related data from each endpoint (request &amp; response) in all micro-services 
+irtm-Logs saves all related data from each endpoint (request &amp; response) in all micro-services 
 
 ## Installation
 
 Using npm:
 ```shell
-$ npm install ms-logs
+$ npm install irtm-logs
 ```
 Note: add `--save` if you are using npm < 5.0.0
 
@@ -15,8 +15,8 @@ In Node.js:
 const express = require('express')
 const app     = express()
 
-// Load ms-logs
-const Logs = require('ms-logs')
+// Load irtm-logs
+const Logs = require('irtm-logs')
 
 // Create a new model and save in database
 app.post('/v1/your/route', /* your validation... */, (req, res, next) => {

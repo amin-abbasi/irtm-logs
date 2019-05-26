@@ -1,14 +1,14 @@
 {
-  "name": "ms-logs",
+  "name": "irtm-logs",
   "version": "1.0.0",
-  "description": "MS-Logs saves all related data from each endpoint (request & response)",
+  "description": "irtm-Logs saves all related data from each endpoint (request & response)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amin4193/ms-logs.git"
+    "url": "git+https://github.com/amin4193/irtm-logs.git"
   },
   "keywords": [
     "logs",
@@ -17,7 +17,7 @@
   "author": "AAH",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amin4193/ms-logs/issues"
+    "url": "https://github.com/amin4193/irtm-logs/issues"
   },
-  "homepage": "https://github.com/amin4193/ms-logs#readme"
+  "homepage": "https://github.com/amin4193/irtm-logs#readme"
 }
