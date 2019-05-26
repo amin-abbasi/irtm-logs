@@ -10,25 +10,14 @@ $ npm install irtm-logs
 ```
 Note: add `--save` if you are using npm < 5.0.0
 
-In Node.js:
+In Node.js save any endpoint action by having `objectId`, `objectType`, endpoint request (`req`) & response (`res`):
 ```js
-const express = require('express')
-const app     = express()
 
 // Load irtm-logs
 const Logs = require('irtm-logs')
 
-// Create a new model and save in database
-app.post('/v1/your/route', /* your validation... */, (req, res, next) => {
-  return YourModel.create(req.body)
-    .then((result) => {
-      
-      // save this endpoint action
-      Logs.send(req, { ...res, result: result })
+// save endpoint action
+Logs.send(objectId, objectType, req, res)
 
-      res.send({ success: true, result: result })
-    })
-    .catch(/* error handling... */)
-})
 ```
 
