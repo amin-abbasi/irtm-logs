@@ -1,0 +1,23 @@
+{
+  "name": "ms-logs",
+  "version": "1.0.0",
+  "description": "MS-Logs saves all related data from each endpoint (request & response)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amin4193/ms-logs.git"
+  },
+  "keywords": [
+    "logs",
+    "micro-services"
+  ],
+  "author": "AAH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amin4193/ms-logs/issues"
+  },
+  "homepage": "https://github.com/amin4193/ms-logs#readme"
+}
